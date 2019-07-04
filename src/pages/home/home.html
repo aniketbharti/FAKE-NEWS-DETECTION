@@ -1,0 +1,70 @@
+<ion-header>
+  <div style="text-align: center;background-color:rgb(50, 138, 209);height: 55px;margin-top: -22px;padding-left: 2px;padding-right: 2px">
+    <p style="font-size: 2.2rem !important;color:white;padding-top: 15px"><b> Fake News Detection </b>  </p>
+  </div>
+  
+ 
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="newsForm" (ngSubmit)="submit()">
+    <ion-list >
+      <ion-item>
+        <ion-label color="primary" stacked>Enter Your News Here</ion-label>
+        <ion-textarea
+          type="text"
+          rows="12"
+          formControlName="text"
+        ></ion-textarea>
+      </ion-item>
+    </ion-list>
+
+    <div style="width:100%;text-align: center">
+      <button
+        ion-button
+        type="submit"
+        [disabled]="!newsForm.valid || validLength === 0"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+  <div *ngIf="show" style="padding-top: 16px;background-color: azure">
+    <ion-item-group>
+      <ion-item-divider color="light" >
+         Truth Score<span style="float: right;color:darkslateblue"
+          ><b>{{ predictionPercentage }}%</b></span
+        ></ion-item-divider >
+      <ion-range
+        min="0"
+        max="100"
+        [(ngModel)]="predictionPercentage"
+        disabled
+        color="secondary"
+      >
+        <ion-label range-left style="color:red"><b>0</b></ion-label>
+        <ion-label range-right style="color:green"><b>100</b></ion-label>
+      </ion-range>
+    </ion-item-group>
+  </div>
+
+ <ion-card   *ngIf="show" >
+  <ion-card-content style="padding-top:1%;color:green;font-size: 16px" >
+      The news seems to be {{ predictionPercentage }} % correct according to us, The top links associated with the news are given below
+  </ion-card-content>
+  
+</ion-card>
+
+<div  *ngIf="show" >
+
+  <ion-card *ngFor="let item of sites_url; let i = index" >
+
+    <ion-card-content  (click)= "openBrowser(item)" >
+    <a > {{item}} </a>
+    </ion-card-content>
+
+</ion-card>
+
+</div>
+
+
