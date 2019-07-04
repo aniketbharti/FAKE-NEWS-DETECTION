@@ -14,6 +14,7 @@ STEPS TO RUN THIS CLIENT APPLICATION
 3. Now you type here the news you want to check
 
 STEPS TO RUN SERVER APPLICATION
+
 1.Go to server folder
 
 2.Download all the dependencies of python files and download and place "GoogleNews-vectors-negative300-SLIM.bin" in server folder 
