@@ -15,8 +15,10 @@ STEPS TO RUN THIS CLIENT APPLICATION
 
 STEPS TO RUN SERVER APPLICATION
 1.Go to server folder
+
 2.Download all the dependencies of python files and download and place "GoogleNews-vectors-negative300-SLIM.bin" in server folder 
 (https://github.com/eyaler/word2vec-slim/blob/master/GoogleNews-vectors-negative300-SLIM.bin.gz)
+
 3. Run flask server file (server.py)
 
 4.Now type news under evaluation in the browser app and hit the server. It will list the similar articles as well as similarity score
